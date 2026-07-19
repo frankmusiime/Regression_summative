@@ -321,7 +321,7 @@ The API was deployed using Render.
 TODO:
 
 ```
-https://your-api-url.onrender.com
+https://regression-summative5.onrender.com
 ```
 
 ## Swagger Documentation
@@ -329,7 +329,7 @@ https://your-api-url.onrender.com
 TODO:
 
 ```
-https://your-api-url.onrender.com/docs
+https://regression-summative5.onrender.com/docs
 ```
 
 ---
