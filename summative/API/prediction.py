@@ -139,8 +139,15 @@ def create_input_dataframe(data: UniversityInput):
 
 # Home Endpoint
 
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy",
+        "api": "running"
+    }
 
-@app.get("/model-info")
+
+@app.get("/model")
 def model_info():
     return {
         "model": model_name,
@@ -222,7 +229,8 @@ def retrain_endpoint():
     model, scaler, model_name, results = retrain()
 
     return {
-        "message": "Model retrained successfully.",
-        "best_model": model_name,
-        "training_results": results
+        "message": results["message"],
+        "best_model": results["best_model"],
+        "metrics": results["metrics"],
+        "all_models": results["results"]
     }
