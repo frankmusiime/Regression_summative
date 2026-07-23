@@ -71,51 +71,56 @@ class UniversityInput(BaseModel):
 
     quality_of_education: float = Field(
         ...,
-        ge=0,
-        le=100
+        ge=1,
+        le=367
     )
 
     alumni_employment: float = Field(
         ...,
-        ge=0,
-        le=100
+        ge=1,
+        le=567
     )
 
     quality_of_faculty: float = Field(
         ...,
-        ge=0,
-        le=100
+        ge=1,
+        le=218
     )
 
     publications: float = Field(
         ...,
-        ge=0
+        ge=1,
+        le=1000
     )
 
     influence: float = Field(
         ...,
-        ge=0
+        ge=1,
+        le=991
     )
 
     citations: float = Field(
         ...,
-        ge=0
+        ge=1,
+        le=812
     )
 
     broad_impact: float = Field(
         ...,
-        ge=0
+        ge=1,
+        le=1000
     )
 
     patents: float = Field(
         ...,
-        ge=0
+        ge=1,
+        le=871
     )
 
     year: int = Field(
         ...,
-        ge=2000,
-        le=2030
+        ge=2012,
+        le=2015
     )
 
 

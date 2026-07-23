@@ -3,7 +3,7 @@ name = "summative"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12.8"
 dependencies = [
     "fastapi>=0.139.0",
     "ipykernel>=7.3.0",
