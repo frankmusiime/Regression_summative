@@ -397,13 +397,8 @@ The application contains:
 
 # Flutter Application Screenshot
 
-TODO: Add screenshot.
+<img width="188" height="427" alt="image" src="https://github.com/user-attachments/assets/9f9bcfde-3be5-4801-b1b7-ccd7d65a5e7b" />
 
-Example:
-
-```markdown
-![Flutter App](images/flutter_app.png)
-```
 
 # Project Structure
 
@@ -442,7 +437,7 @@ ML/
 ## Clone Repository
 
 ```bash
-git clone TODO_ADD_GITHUB_LINK
+https://github.com/frankmusiime/Regression_summative.git
 
 cd ML
 ```
