@@ -145,24 +145,9 @@ Features were analyzed using:
 
 Ranking-related variables were carefully reviewed because some ranking values may already be calculated from performance scores.
 
-TODO:
+The **institution** and **country** columns were excluded from model training because they are categorical identifiers rather than numerical predictors. While these variables could be encoded, they introduce high-cardinality categories that increase model complexity without necessarily improving prediction accuracy.
 
-Explain columns dropped and why.
-
-Example:
-
-```
-world_rank and national_rank were removed because they may introduce target leakage since rankings are derived from performance.
-```
-
-## Encoding Categorical Variables
-
-Categorical variables such as:
-
-- institution
-- country
-
-were converted into numerical values where necessary.
+The **world_rank** and **national_rank** variables were removed to reduce the risk of target leakage. These rankings are derived from many of the same indicators used to calculate the university performance score and could therefore provide the model with indirect information about the target variable.
 
 
 ## Feature Scaling
@@ -223,16 +208,14 @@ The model with the lowest loss was selected as the final deployed model.
 
 # Model Performance Results
 
-TODO: Add your actual model results.
+| Model             | MSE | RMSE | MAE |  R² |
+| ----------------- | --: | ---: | --: | --: |
+| Linear Regression |26.754|5.1724|2.7345|0.5033|
+| SGDRegressor      |26.7571|5.1727|2.7367|0.5032|
+| Decision Tree     |3.63|1.9052|0.9809|0.9326|
+| Random Forest     |1.2556|1.1205|0.5333|0.9767|
 
-Example:
-
-| Model | MSE | RMSE | R² Score |
-|---|---|---|---|
-| Linear Regression | TODO | TODO | TODO |
-| SGDRegressor | TODO | TODO | TODO |
-| Decision Tree | TODO | TODO | TODO |
-| Random Forest | TODO | TODO | TODO |
+Among the evaluated algorithms, the Random Forest Regressor achieved the lowest Mean Squared Error and the highest coefficient of determination (R²), indicating superior predictive performance. Consequently, this model was selected for deployment and saved as the production model.
 
 
 # Best Model Selection
@@ -242,7 +225,7 @@ After evaluating all regression algorithms, the best-performing model was saved.
 Selected Model:
 
 ```
-TODO: Add model name
+Random Forest Regressor 
 ```
 
 Saved model:
@@ -318,21 +301,15 @@ The API was deployed using Render.
 
 ## API URL
 
-TODO:
-
 ```
 https://regression-summative5.onrender.com
 ```
 
 ## Swagger Documentation
 
-TODO:
-
 ```
 https://regression-summative5.onrender.com/docs
 ```
-
----
 
 # API Input Validation
 
@@ -368,8 +345,6 @@ Example response:
   "predicted_score": 98.45
 }
 ```
-
----
 
 # CORS Configuration
 
@@ -407,8 +382,6 @@ Endpoint:
 POST /retrain
 ```
 
----
-
 # Flutter Mobile Application
 
 The Flutter application consumes the deployed FastAPI endpoint.
@@ -432,21 +405,16 @@ Example:
 ![Flutter App](images/flutter_app.png)
 ```
 
----
-
 # Project Structure
 
 ```
-linear_regression_model/
+ML/
 
 │
 ├── README.md
 ├── pyproject.toml
 ├── uv.lock
 │
-├── models/
-│   ├── best_model.pkl
-│   └── scaler.pkl
 │
 ├── summative/
 │
@@ -462,6 +430,9 @@ linear_regression_model/
 │   └── FlutterApp/
 │       ├── lib/
 │       └── pubspec.yaml
+├── models/
+│   ├── best_model.pkl
+│   └── scaler.pkl
 ```
 
 ---
@@ -473,10 +444,8 @@ linear_regression_model/
 ```bash
 git clone TODO_ADD_GITHUB_LINK
 
-cd linear_regression_model
+cd ML
 ```
-
----
 
 # Running FastAPI
 
@@ -510,8 +479,6 @@ Swagger:
 http://127.0.0.1:8000/docs
 ```
 
----
-
 # Running Flutter Application
 
 Navigate:
@@ -531,8 +498,6 @@ Run:
 ```bash
 flutter run
 ```
-
----
 
 # Video Demonstration
 
@@ -554,8 +519,6 @@ TODO:
 ```
 https://youtube.com/your-video-link
 ```
-
----
 
 # Technologies Used
 
@@ -600,3 +563,7 @@ https://youtube.com/your-video-link
 - [ ] Video demonstration completed.
 - [ ] pyproject.toml included.
 - [ ] uv.lock included.
+
+This project demonstrates the complete machine learning deployment pipeline, from data exploration and feature engineering to model training, evaluation, deployment, and mobile application integration. By combining Scikit-learn, FastAPI, Render, and Flutter, the project delivers an end-to-end regression system capable of predicting university performance scores from academic and research indicators.
+
+The implementation satisfies the assignment requirements while illustrating practical software engineering and machine learning deployment techniques
